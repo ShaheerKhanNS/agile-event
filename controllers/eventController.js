@@ -65,3 +65,23 @@ exports.deleteEvent = async (req, res) => {
     console.log(err);
   }
 };
+
+exports.updateEvent = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const updated = req.body;
+    // console.log(Object.entries(updated));
+    const event = await Event.findByPk(id);
+    for (const [key, value] of Object.entries(updated)) {
+      event[key] = value;
+    }
+    await event.save();
+
+    res.status(202).json({
+      status: "success",
+      message: "updated",
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
