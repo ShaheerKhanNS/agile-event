@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api/v3/app", eventRouter);
 
 sequelize
-  .sync({ force: true })
+  .sync()
   .then((res) => {
     app.listen(process.env.PORT, () => {
       console.log(`App running on ${process.env.PORT}`);

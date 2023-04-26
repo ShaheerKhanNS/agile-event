@@ -35,3 +35,17 @@ exports.createEvent = async (req, res) => {
     console.log(err);
   }
 };
+
+exports.getEvent = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const event = await Event.findByPk(id);
+
+    res.status(200).json({
+      status: "success",
+      event,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
