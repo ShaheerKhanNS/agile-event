@@ -18,15 +18,15 @@ const Event = sequelize.define("events", {
     allowNull: false,
   },
   schedule: {
-    type: Sequelize.DATE,
+    type: Sequelize.STRING,
     allowNull: false,
   },
   description: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  image: {
-    type: Sequelize.BLOB("long"),
+  imageUrl: {
+    type: Sequelize.STRING,
     allowNull: false,
   },
   moderator: {
