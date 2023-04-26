@@ -41,9 +41,25 @@ exports.getEvent = async (req, res) => {
     const id = req.params.id;
     const event = await Event.findByPk(id);
 
-    res.status(200).json({
+    res.status(201).json({
       status: "success",
       event,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+exports.deleteEvent = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    await Event.destroy({
+      where: { id },
+    });
+
+    res.status(200).json({
+      status: "success",
     });
   } catch (err) {
     console.log(err);
