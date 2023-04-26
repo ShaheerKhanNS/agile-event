@@ -7,6 +7,8 @@ const sequelize = require("./util/database");
 
 const app = express();
 
+const Event = require("./model/event");
+
 sequelize
   .sync()
   .then((res) => {
