@@ -28,8 +28,27 @@ exports.createEvent = async (req, res) => {
       attendees,
     });
 
+    res.status(201).json({
+      status: "success",
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+exports.getEvents = async (req, res) => {
+  try {
+    const page = +req.query.page || 1;
+    const itemsPerPage = +req.query.size || 2;
+
+    const events = await Event.findAll({
+      offset: (page - 1) * itemsPerPage,
+      limit: itemsPerPage,
+    });
+
     res.status(200).json({
       status: "success",
+      events,
     });
   } catch (err) {
     console.log(err);
@@ -58,7 +77,7 @@ exports.deleteEvent = async (req, res) => {
       where: { id },
     });
 
-    res.status(200).json({
+    res.status(204).json({
       status: "success",
     });
   } catch (err) {
@@ -77,7 +96,7 @@ exports.updateEvent = async (req, res) => {
     }
     await event.save();
 
-    res.status(202).json({
+    res.status(200).json({
       status: "success",
       message: "updated",
     });
