@@ -1,0 +1,27 @@
+{
+  "name": "agile-event",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShaheerKhanNS/agile-event.git"
+  },
+  "author": "Shaheer Khan NS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShaheerKhanNS/agile-event/issues"
+  },
+  "homepage": "https://github.com/ShaheerKhanNS/agile-event#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mysql2": "^3.2.4",
+    "sequelize": "^6.31.0"
+  }
+}
